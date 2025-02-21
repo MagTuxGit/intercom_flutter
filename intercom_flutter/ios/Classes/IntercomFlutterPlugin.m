@@ -232,31 +232,31 @@ id unread;
         [Intercom presentIntercom:home];
         result(@"Presented home space");
     } else if([@"isUserLoggedIn" isEqualToString:call.method]) {
-        if([Intercom isUserLoggedIn]) {
-            result(@(YES));
-        }else{
+        // if([Intercom isUserLoggedIn]) {
+        //     result(@(YES));
+        // }else{
             result(@(NO));
-        }
+        // }
     } else if([@"fetchLoggedInUserAttributes" isEqualToString:call.method]) {
-        ICMUserAttributes *data = [Intercom fetchLoggedInUserAttributes];
-        if(data != (id)[NSNull null]){
-            NSDictionary *attributes = data.attributes;
-            NSMutableDictionary<NSString *, id> *map = [attributes mutableCopy];
+        // ICMUserAttributes *data = [Intercom fetchLoggedInUserAttributes];
+        // if(data != (id)[NSNull null]){
+        //     NSDictionary *attributes = data.attributes;
+        //     NSMutableDictionary<NSString *, id> *map = [attributes mutableCopy];
             
-            // Add custom attributes
-            map[@"custom_attributes"] = data.customAttributes;
+        //     // Add custom attributes
+        //     map[@"custom_attributes"] = data.customAttributes;
            
-            // Add companies
-            if (data.companies) {
-                NSMutableArray *companiesArray = [NSMutableArray array];
-                for (ICMCompany *company in data.companies) {
-                    [companiesArray addObject:[company attributes]];
-                }
-                map[@"companies"] = companiesArray;
-            }
+        //     // Add companies
+        //     if (data.companies) {
+        //         NSMutableArray *companiesArray = [NSMutableArray array];
+        //         for (ICMCompany *company in data.companies) {
+        //             [companiesArray addObject:[company attributes]];
+        //         }
+        //         map[@"companies"] = companiesArray;
+        //     }
             
-            result(map);
-        }
+        //     result(map);
+        // }
         result([NSMutableDictionary dictionary]);
     }
     else {
