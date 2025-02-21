@@ -19,5 +19,6 @@ A new flutter plugin project.
   s.static_framework = true
   # s.dependency 'Intercom', '18.6.0'
   s.dependency 'Intercom', '16.6.1'
-  s.ios.deployment_target = '15.0'
+  # s.ios.deployment_target = '15.0'
+  s.ios.deployment_target = '13.0'
 end
